@@ -8,9 +8,6 @@ let todos = [
     'third task'
 ]
 
-
-
-
 app.get('/',(req,res)=>{
     let todoList = ''
     for(let i= 0;i<todos.length;i++){
@@ -37,8 +34,9 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/add',(req,res)=>{
-
+    if(req.query.task.length!=0){
     todos.push(req.query.task)
+    }
     res.redirect("/")
 
 })
